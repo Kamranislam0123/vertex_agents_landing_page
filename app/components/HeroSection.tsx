@@ -103,7 +103,7 @@ export default function HeroSection() {
         {/* Headline with animated gradient text and scramble reveal */}
         <h1 className="text-xl font-extrabold tracking-tight p-2 sm:text-2xl lg:text-4xl">
           <span className="block text-white">The</span>
-          <span className="animate-gradient-text block p2 min-h-[1.1em]">
+          <span className="animate-gradient-text block p-2 min-h-[1.1em]">
             <ScrambleText text="Sentinel Layer" />
           </span>
         </h1>
