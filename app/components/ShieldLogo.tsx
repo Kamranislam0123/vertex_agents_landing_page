@@ -1,8 +1,9 @@
 export default function ShieldLogo() {
   return (
-    <div className="relative mb-0 h-12 w-12 flex items-center justify-center scale-75">
+    <div className="m-2 p-2 sm:m-4 sm:p-4">
+      <div className="relative mb-0 h-12 w-12 flex items-center justify-center py-2 scale-75">
       {/* HUD Reticle Corners */}
-      <div className="absolute -inset-4 pointer-events-none">
+      <div className="absolute -inset-4 pointer-events-none py-2">
         <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-cyan/40" />
         <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-cyan/40" />
         <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-cyan/40" />
@@ -70,6 +71,7 @@ export default function ShieldLogo() {
           <circle cx="70" cy="45" r="1" fill="#8b5cf6" className="animate-[blink_1.2s_infinite]" />
           <circle cx="50" cy="80" r="1" fill="#00f0ff" className="animate-[blink_0.8s_infinite]" />
         </svg>
+      </div>
       </div>
     </div>
   );

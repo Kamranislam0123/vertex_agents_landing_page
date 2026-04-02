@@ -53,7 +53,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex h-full min-h-0 w-full flex-col items-center justify-center px-4 py-1 text-center sm:px-6 lg:px-8">
+    <section className="relative flex h-full min-h-0 w-full flex-col items-center justify-center my-8 px-6 py-6 text-center sm:px-8 lg:px-12">
       {/* Background Particles Canvas */}
       <ParticleCanvas />
 
@@ -89,7 +89,7 @@ export default function HeroSection() {
       {/* Hero Content */}
       <div className="z-10 flex flex-col items-center max-w-5xl">
         {/* Status Badge */}
-        <div className="mb-1 flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-0.5 backdrop-blur-sm">
+        <div className="mb-1 flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-1 backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-cyan opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-cyan"></span>
@@ -101,9 +101,9 @@ export default function HeroSection() {
         <ShieldLogo />
 
         {/* Headline with animated gradient text and scramble reveal */}
-        <h1 className="text-xl font-extrabold tracking-tight sm:text-2xl lg:text-4xl">
+        <h1 className="text-xl font-extrabold tracking-tight p-2 sm:text-2xl lg:text-4xl">
           <span className="block text-white">The</span>
-          <span className="animate-gradient-text block min-h-[1.1em]">
+          <span className="animate-gradient-text block p2 min-h-[1.1em]">
             <ScrambleText text="Sentinel Layer" />
           </span>
         </h1>
