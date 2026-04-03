@@ -101,15 +101,15 @@ export default function HeroSection() {
         <ShieldLogo />
 
         {/* Headline with animated gradient text and scramble reveal */}
-        <h1 className="text-xl font-extrabold tracking-tight p-2 sm:text-2xl lg:text-4xl">
-          <span className="block text-white">Thee</span>
-          <span className="animate-gradient-text block p-2 min-h-[1.1em]">
+        <h1 className="text-6xl font-extrabold tracking-tight p-2 sm:text-4xl md:text-6xl lg:text-7xl">
+          <span className="block text-white">The</span>
+          <span className="animate-gradient-text text-6xl md:text-7xl lg:text-8xl block p-2 min-h-[1.1em]">
             <ScrambleText text="Sentinel Layer" />
           </span>
         </h1>
 
         {/* Subheadline with bracketed highlights */}
-        <p className="mt-1 max-w-xl text-[10px] text-slate-400 sm:text-xs lg:text-sm leading-tight">
+        <p className="mt-1 max-w-xl text-sm text-slate-400 sm:text-base lg:text-lg leading-snug">
           Verifiable risk management for AI trading agents — <span className="font-mono text-brand-cyan text-glow">[fail-closed]</span>, <span className="text-white">non-custodial</span>, <span className="font-mono text-brand-purple text-glow">[on-chain]</span>.
         </p>
 

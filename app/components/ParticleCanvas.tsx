@@ -14,166 +14,107 @@ export default function ParticleCanvas() {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let nodes: Node[] = [];
-    let streams: Stream[] = [];
-    const nodeCount = 100;
+    const nodeCount = 30; // Fewer particles
+    const nodes: Node[] = [];
     const connectionDistance = 150;
-    const mouseRadius = 200;
 
     class Node {
       x: number;
       y: number;
       vx: number;
       vy: number;
-      radius: number;
-      baseX: number;
-      baseY: number;
+      size: number;
+      color: string;
+      pulse: number;
 
-      constructor(width: number, height: number) {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.radius = Math.random() * 1.5 + 0.5;
+      constructor(w: number, h: number) {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.15; // Slowed down
+        this.vy = (Math.random() - 0.5) * 0.15; // Slowed down
+        this.size = Math.random() * 1.5 + 0.5;
+        this.color = Math.random() > 0.5 ? "0, 240, 255" : "139, 92, 246";
+        this.pulse = Math.random() * Math.PI * 2;
       }
 
-      update(width: number, height: number, mouse: { x: number, y: number, active: boolean }) {
-        if (mouse.active) {
-          const dx = mouse.x - this.x;
-          const dy = mouse.y - this.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < mouseRadius) {
-            const force = (mouseRadius - distance) / mouseRadius;
-            const angle = Math.atan2(dy, dx);
-            this.vx -= Math.cos(angle) * force * 0.2;
-            this.vy -= Math.sin(angle) * force * 0.2;
-          }
-        }
-
+      update(w: number, h: number, mouse: any) {
+        this.pulse += 0.02; // Slow pulse
         this.x += this.vx;
         this.y += this.vy;
 
-        // Friction
-        this.vx *= 0.99;
-        this.vy *= 0.99;
-
-        // Drift back to base or bound
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
       }
 
       draw(ctx: CanvasRenderingContext2D) {
+        const glow = Math.sin(this.pulse) * 0.5 + 0.5;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 240, 255, 0.4)";
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color}, ${0.1 + glow * 0.2})`; // Lower opacity
         ctx.fill();
-        
-        if (Math.random() > 0.995) {
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = "#00f0ff";
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        }
+
+        // Very faint ring
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${this.color}, ${0.05 * (1 - glow)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
       }
     }
 
-    class Stream {
-      x: number;
-      y: number;
-      speed: number;
-      length: number;
-
-      constructor(width: number, height: number) {
-        this.x = Math.random() * width;
-        this.y = -200;
-        this.speed = Math.random() * 10 + 5;
-        this.length = Math.random() * 200 + 100;
+    const drawGrid = (w: number, h: number) => {
+      ctx.strokeStyle = "rgba(0, 240, 255, 0.05)"; // Slightly more visible grid
+      ctx.lineWidth = 1;
+      const step = 60;
+      
+      for (let x = 0; x < w; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
       }
-
-      update(width: number, height: number) {
-        this.y += this.speed;
-        if (this.y > height) {
-          this.y = -this.length;
-          this.x = Math.random() * width;
-        }
+      for (let y = 0; y < h; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
       }
-
-      draw(ctx: CanvasRenderingContext2D) {
-        const gradient = ctx.createLinearGradient(0, this.y, 0, this.y + this.length);
-        gradient.addColorStop(0, "rgba(0, 240, 255, 0)");
-        gradient.addColorStop(0.5, "rgba(139, 92, 246, 0.1)");
-        gradient.addColorStop(1, "rgba(0, 240, 255, 0)");
-        
-        ctx.fillStyle = gradient;
-        ctx.fillRect(this.x, this.y, 1, this.length);
-      }
-    }
+    };
 
     const init = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      nodes = [];
-      streams = [];
+      nodes.length = 0;
       for (let i = 0; i < nodeCount; i++) {
         nodes.push(new Node(canvas.width, canvas.height));
-      }
-      for (let i = 0; i < 5; i++) {
-        streams.push(new Stream(canvas.width, canvas.height));
-      }
-    };
-
-    const drawLine = (n1: Node, n2: Node) => {
-      const dx = n1.x - n2.x;
-      const dy = n1.y - n2.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < connectionDistance) {
-        ctx.beginPath();
-        ctx.moveTo(n1.x, n1.y);
-        ctx.lineTo(n2.x, n2.y);
-        
-        let opacity = (1 - distance / connectionDistance) * 0.15;
-        
-        // Mouse proximity brightening
-        if (mouseRef.current.active) {
-          const mdx1 = mouseRef.current.x - n1.x;
-          const mdy1 = mouseRef.current.y - n1.y;
-          const mdist1 = Math.sqrt(mdx1 * mdx1 + mdy1 * mdy1);
-          
-          if (mdist1 < mouseRadius) {
-            opacity *= 2.5;
-            ctx.strokeStyle = `rgba(0, 240, 255, ${opacity})`;
-          } else {
-            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-          }
-        } else {
-          ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-        }
-
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
       }
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      streams.forEach(stream => {
-        stream.update(canvas.width, canvas.height);
-        stream.draw(ctx);
-      });
+      drawGrid(canvas.width, canvas.height);
 
-      nodes.forEach((node) => {
+      nodes.forEach(node => {
         node.update(canvas.width, canvas.height, mouseRef.current);
         node.draw(ctx);
       });
 
+      // Draw faint connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          drawLine(nodes[i], nodes[j]);
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < connectionDistance) {
+                const opacity = (1 - dist / connectionDistance) * 0.05;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
         }
       }
 
@@ -181,8 +122,6 @@ export default function ParticleCanvas() {
     };
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
       init();
     };
 
@@ -212,7 +151,7 @@ export default function ParticleCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-20 h-full w-full bg-[#03030a]"
+      className="fixed inset-0 -z-10 h-full w-full pointer-events-none"
     />
   );
 }

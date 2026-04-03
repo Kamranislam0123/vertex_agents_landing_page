@@ -7,7 +7,7 @@ import TechStack from "./components/TechStack";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center bg-black">
+    <main className="min-h-screen flex flex-col items-center">
       <HeroSection />
       <ProblemSection />
       <ArchitectureFlow />
