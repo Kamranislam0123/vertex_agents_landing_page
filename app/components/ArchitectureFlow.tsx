@@ -23,8 +23,7 @@ async function signIntent(intent: TradeIntent) {
     types: INTENT_TYPES,
     primaryType: 'TradeIntent',
     message: intent
-  });
-}`
+  });}`
   },
   {
     id: "sentinel",
@@ -160,77 +159,77 @@ export default function ArchitectureFlow() {
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Improved Code Popup */}
-        <AnimatePresence>
-          {activeNode && activeData && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+      {/* Improved Code Popup (moved outside of z-10 container to avoid stacking context issues) */}
+      <AnimatePresence>
+        {activeNode && activeData && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+          >
+            <motion.div 
+              ref={popupRef}
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="relative w-full max-w-3xl bg-[#0d1117] border border-white/10 rounded-3xl shadow-[0_0_80px_rgba(34,211,238,0.15)] overflow-hidden"
             >
-              <motion.div 
-                ref={popupRef}
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                className="relative w-full max-w-3xl bg-[#0d1117] border border-white/10 rounded-3xl shadow-[0_0_80px_rgba(34,211,238,0.15)] overflow-hidden"
-              >
-                {/* Header */}
-                <div className="flex items-center justify-between px-8 py-6 border-b border-white/5 bg-white/[0.02]">
-                  <div className="flex items-center gap-4">
-                    <div className={`p-2.5 rounded-xl bg-black/40 border border-white/10 ${activeData.accent}`}>
-                        <activeData.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold text-white leading-tight">{activeData.title}</h3>
-                        <p className="text-gray-400 text-xs font-mono">{activeData.subtitle}</p>
-                    </div>
+              {/* Header */}
+              <div className="flex items-center justify-between px-8 py-6 border-b border-white/5 bg-white/[0.02]">
+                <div className="flex items-center gap-4">
+                  <div className={`p-2.5 rounded-xl bg-black/40 border border-white/10 ${activeData.accent}`}>
+                      <activeData.icon className="w-5 h-5" />
                   </div>
-                  <button 
-                    onClick={() => setActiveNode(null)}
-                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all p-1"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
+                  <div>
+                      <h3 className="text-xl font-bold text-white leading-tight">{activeData.title}</h3>
+                      <p className="text-gray-400 text-xs font-mono">{activeData.subtitle}</p>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setActiveNode(null)}
+                  className="group flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all p-1"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              
+              {/* Body */}
+              <div className="p-8">
+                <div className="flex items-start gap-4 mb-8 bg-cyan-400/5 border border-cyan-400/20 p-4 rounded-xl">
+                  <Shield className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                      {activeData.caption}
+                  </p>
                 </div>
                 
-                {/* Body */}
-                <div className="p-8">
-                  <div className="flex items-start gap-4 mb-8 bg-cyan-400/5 border border-cyan-400/20 p-4 rounded-xl">
-                    <Shield className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                    <p className="text-gray-200 text-sm md:text-base leading-relaxed">
-                        {activeData.caption}
-                    </p>
-                  </div>
-                  
-                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#010409] shadow-inner">
-                    <pre className="m-0 p-6 overflow-x-auto text-[13px] md:text-sm leading-relaxed custom-scrollbar">
-                      <code className={`language-${activeData.language}`}>
-                        {activeData.code}
-                      </code>
-                    </pre>
-                  </div>
+                <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#010409] shadow-inner">
+                  <pre className="m-0 p-6 overflow-x-auto text-[13px] md:text-sm leading-relaxed custom-scrollbar">
+                    <code className={`language-${activeData.language}`}>
+                      {activeData.code}
+                    </code>
+                  </pre>
                 </div>
+              </div>
 
-                <div className="px-8 pb-8 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                         <span className="text-[10px] font-mono text-gray-400 tracking-wider">PROTOCOL_VERIFIED</span>
-                    </div>
-                    <button 
-                        onClick={() => setActiveNode(null)}
-                        className="text-xs font-bold text-cyan-400 uppercase tracking-widest hover:text-cyan-300 transition-colors"
-                    >
-                        Close Module
-                    </button>
-                </div>
-              </motion.div>
+              <div className="px-8 pb-8 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                       <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                       <span className="text-[10px] font-mono text-gray-400 tracking-wider">PROTOCOL_VERIFIED</span>
+                  </div>
+                  <button 
+                      onClick={() => setActiveNode(null)}
+                      className="text-xs font-bold text-cyan-400 uppercase tracking-widest hover:text-cyan-300 transition-colors"
+                  >
+                      Close Module
+                  </button>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
