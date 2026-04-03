@@ -114,27 +114,27 @@ export default function HeroSection() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:gap-4">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 flex-wrap justify-center">
           <a
             href="https://github.com/your-org/sentinel"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-sm border border-brand-cyan/40 bg-brand-cyan/5 px-6 py-3 font-tech text-[9px] tracking-[0.2em] text-brand-cyan transition-all duration-300 hover:bg-brand-cyan hover:text-black hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] glitch-hover"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-sm border border-brand-cyan/40 bg-brand-cyan/5 px-8 py-3.5 font-tech text-[10px] tracking-[0.2em] text-brand-cyan transition-all duration-300 hover:bg-brand-cyan hover:text-black hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] glitch-hover"
           >
-            <span className="absolute top-0 left-0 h-1 w-1 border-t border-l border-brand-cyan" />
-            <span className="absolute top-0 right-0 h-1 w-1 border-t border-r border-brand-cyan" />
-            <span className="absolute bottom-0 left-0 h-1 w-1 border-b border-l border-brand-cyan" />
-            <span className="absolute bottom-0 right-0 h-1 w-1 border-b border-r border-brand-cyan" />
+            <span className="absolute top-0 left-0 h-1.5 w-1.5 border-t border-l border-brand-cyan" />
+            <span className="absolute top-0 right-0 h-1.5 w-1.5 border-t border-r border-brand-cyan" />
+            <span className="absolute bottom-0 left-0 h-1.5 w-1.5 border-b border-l border-brand-cyan" />
+            <span className="absolute bottom-0 right-0 h-1.5 w-1.5 border-b border-r border-brand-cyan" />
             INITIATE_GITHUB
           </a>
           <a
             href="https://notion.so/your-docs"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass group relative flex items-center justify-center rounded-sm px-6 py-3 font-tech text-[9px] tracking-[0.2em] text-white transition-all hover:bg-white/10 hover:border-white/40 glitch-hover"
+            className="glass group relative flex items-center justify-center rounded-sm px-8 py-3.5 font-tech text-[10px] tracking-[0.2em] text-white transition-all hover:bg-white/10 hover:border-white/40 glitch-hover"
           >
-             <span className="absolute top-0 left-0 h-1 w-1 border-t border-l border-white/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-             <span className="absolute bottom-0 right-0 h-1 w-1 border-b border-r border-white/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+             <span className="absolute top-0 left-0 h-1.5 w-1.5 border-t border-l border-white/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+             <span className="absolute bottom-0 right-0 h-1.5 w-1.5 border-b border-r border-white/40 opacity-0 group-hover:opacity-100 transition-opacity" />
             RESOLVE_DOCS
           </a>
         </div>
