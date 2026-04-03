@@ -53,7 +53,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center px-6 py-12 text-center sm:px-8 lg:px-12">
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6 py-12 text-center sm:px-8 lg:px-12">
       {/* Background Particles Canvas */}
       <ParticleCanvas />
 
