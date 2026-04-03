@@ -19,8 +19,6 @@
   }
   body {
     @apply bg-brand-dark text-white antialiased selection:bg-brand-cyan/30;
-    height: 100vh;
-    overflow: hidden;
     margin: 0;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     animation: monitor-flicker 10s ease-in-out infinite alternate;
