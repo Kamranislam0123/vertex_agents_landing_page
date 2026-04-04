@@ -91,10 +91,10 @@ export default function ArchitectureFlow() {
     <section className="w-full py-24 relative overflow-hidden bg-black/40">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-tech tracking-[0.1em] text-white mb-6 uppercase leading-tight">
             The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Architecture</span> Flow
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="font-mono text-xs md:text-sm text-gray-400 max-w-2xl mx-auto tracking-wider leading-relaxed">
             A secure, fail-closed pipeline that bridges AI intents with on-chain execution.
           </p>
         </div>
@@ -122,8 +122,8 @@ export default function ArchitectureFlow() {
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">{node.title}</h3>
-                <p className="text-gray-400 text-xs mb-4">{node.subtitle}</p>
+                <h3 className="text-sm md:text-base font-tech tracking-wider text-white mb-2 uppercase group-hover:text-cyan-400 transition-colors mt-2">{node.title}</h3>
+                <p className="font-mono text-[10px] tracking-widest text-gray-400 mb-6 uppercase">{node.subtitle}</p>
                 
                 <div className="flex items-center text-[10px] font-mono text-cyan-400/70 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
                   <span className="mr-1 mt-0.5">VIEW_CODE</span>
@@ -184,8 +184,8 @@ export default function ArchitectureFlow() {
                       <activeData.icon className="w-5 h-5" />
                   </div>
                   <div>
-                      <h3 className="text-xl font-bold text-white leading-tight">{activeData.title}</h3>
-                      <p className="text-gray-400 text-xs font-mono">{activeData.subtitle}</p>
+                      <h3 className="text-base font-tech tracking-widest text-white leading-tight uppercase">{activeData.title}</h3>
+                      <p className="font-mono text-[10px] tracking-widest text-cyan-400 uppercase mt-1">{activeData.subtitle}</p>
                   </div>
                 </div>
                 <button 
@@ -200,7 +200,7 @@ export default function ArchitectureFlow() {
               <div className="p-8">
                 <div className="flex items-start gap-4 mb-8 bg-cyan-400/5 border border-cyan-400/20 p-4 rounded-xl">
                   <Shield className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                  <p className="text-gray-200 font-mono text-xs lg:text-sm leading-relaxed tracking-wider">
                       {activeData.caption}
                   </p>
                 </div>

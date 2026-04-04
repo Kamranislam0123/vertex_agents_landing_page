@@ -101,11 +101,11 @@ export default function CodeShowcase() {
   return (
     <section className="w-full py-24 relative overflow-hidden bg-black/30">
       <div className="max-w-5xl mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-tech tracking-[0.1em] text-white mb-6 uppercase leading-tight">
             Developer <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-500">Showcase</span>
           </h2>
-          <p className="text-gray-400 text-lg">Clean interfaces. Bulletproof validation.</p>
+          <p className="font-mono text-xs md:text-sm tracking-wider text-gray-400">Clean interfaces. Bulletproof validation.</p>
         </div>
 
         <div className="bg-[#0d1117] border border-white/10 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl">
@@ -115,7 +115,7 @@ export default function CodeShowcase() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-6 py-4 text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`relative px-6 py-4 text-[11px] font-tech tracking-widest uppercase transition-colors whitespace-nowrap ${
                   activeTab === tab.id ? "text-cyan-400" : "text-gray-400 hover:text-gray-200"
                 }`}
               >
@@ -132,10 +132,10 @@ export default function CodeShowcase() {
             <div className="ml-auto flex items-center pr-4">
               <button 
                 onClick={handleCopy}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium transition-colors border border-white/5"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-sm bg-white/5 hover:bg-white/10 text-cyan-400 font-tech uppercase text-[10px] tracking-widest transition-colors border border-white/5"
               >
                 {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                {copied ? "Copied!" : "Copy Code"}
+                {copied ? "COPIED" : "COPY_CODE"}
               </button>
             </div>
           </div>
