@@ -4,6 +4,7 @@ import ArchitectureFlow from "./components/ArchitectureFlow";
 import ProblemSection from "./components/ProblemSection";
 import HowItWorks from "./components/HowItWorks";
 import CodeShowcase from "./components/CodeShowcase";
+import ResourcesSection from "./components/ResourcesSection";
 import TechStack from "./components/TechStack";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
@@ -18,6 +19,7 @@ export default function Home() {
       <ArchitectureFlow />
       <HowItWorks />
       <CodeShowcase />
+      <ResourcesSection />
       <TechStack />
       <Footer />
     </main>

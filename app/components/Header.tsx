@@ -15,14 +15,14 @@ export default function Header() {
         {/* Logo Section */}
         <a href="/" className="group flex items-center gap-3">
            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-brand-cyan/5 border border-brand-cyan/20 group-hover:border-brand-cyan/50 transition-all duration-300">
-             <Shield className="w-4 h-4 text-brand-cyan group-hover:scale-110 transition-transform" />
-             <div className="absolute inset-0 rounded-lg bg-brand-cyan/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-tech text-xs tracking-[0.3em] text-white group-hover:text-brand-cyan transition-colors">SENTINEL</span>
-            <span className="font-tech text-[8px] tracking-[0.1em] text-slate-500 group-hover:text-slate-300 transition-colors">BY_VERTEXAGENTS</span>
-          </div>
-        </a>
+              <Shield className="w-4 h-4 text-brand-cyan group-hover:scale-110 transition-transform" />
+              <div className="absolute inset-0 rounded-lg bg-brand-cyan/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
+           </div>
+           <div className="flex flex-col">
+             <span className="font-tech text-xs tracking-[0.3em] text-white group-hover:text-brand-cyan transition-colors">SENTINEL</span>
+             <span className="font-tech text-[8px] tracking-[0.1em] text-slate-500 group-hover:text-slate-300 transition-colors">BY_VERTEXAGENTS</span>
+           </div>
+         </a>
 
         {/* Global Connections (Right) */}
         <div className="flex items-center gap-4">
