@@ -5,14 +5,14 @@ import { FileText, Presentation, ArrowRight, ExternalLink } from "lucide-react";
 
 export default function ResourcesSection() {
   const resources = [
-    {
-      title: "Technical Whitepaper",
-      description: "A deep dive into the Vertex Sentinel protocol architecture, fail-closed security mechanisms, and EIP-712 intent verification.",
-      icon: <FileText className="w-6 h-6 text-emerald-400" />,
-      link: "/Whitepaper.pdf",
-      type: "PDF",
-      color: "emerald"
-    },
+    // {
+    //   title: "Technical Whitepaper",
+    //   description: "A deep dive into the Vertex Sentinel protocol architecture, fail-closed security mechanisms, and EIP-712 intent verification.",
+    //   icon: <FileText className="w-6 h-6 text-emerald-400" />,
+    //   link: "/Whitepaper.pdf",
+    //   type: "PDF",
+    //   color: "emerald"
+    // },
     {
       title: "Interactive Pitch Deck",
       description: "Our vision for the future of AI agent security, hackathon goals, and the Kraken CLI / ERC-8004 integration roadmap.",
@@ -26,6 +26,7 @@ export default function ResourcesSection() {
   return (
     <section id="resources" className="w-full py-24 relative overflow-hidden bg-black/20">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,8 +40,9 @@ export default function ResourcesSection() {
             EXPLORE THE CORE DOCUMENTATION AND VISION BEHIND THE SENTINEL LAYER.
           </p>
         </motion.div>
+       
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 place-items-center gap-8">
           {resources.map((resource, index) => (
             <motion.a
               key={index}
@@ -51,7 +53,7 @@ export default function ResourcesSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="group relative block p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500 overflow-hidden"
+              className="group relative block w-full max-w-2xl p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               

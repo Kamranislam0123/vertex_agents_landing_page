@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The Sentinel Layer | Verifiable Risk Management for AI",
   description: "Fail-closed, non-custodial, and on-chain risk management for AI trading agents.",
+  icons: {
+    icon: '/web-app-manifest-192x192.png',
+    shortcut: '/web-app-manifest-192x192.png',
+    apple: '/web-app-manifest-192x192.png',
+  },
 };
 
 export default function RootLayout({

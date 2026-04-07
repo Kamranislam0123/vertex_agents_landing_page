@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, ExternalLink, Mail } from "lucide-react";
+import { Shield, ExternalLink, FileText } from "lucide-react";
 
 export default function Header() {
   return (
@@ -44,12 +44,14 @@ export default function Header() {
             </a>
             
             <a
-              href="mailto:info.vertexagents@gmail.com"
-              className="group flex items-center gap-2 px-3 py-1 rounded-sm bg-white/5 border border-white/10 font-tech text-[9px] tracking-wider text-slate-300 transition-all hover:bg-brand-purple/10 hover:text-brand-purple hover:border-brand-purple/30"
+              href="/Whitepaper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-3 py-1 rounded-sm bg-white/5 border border-white/10 font-tech text-[9px] tracking-wider text-slate-300 transition-all hover:bg-brand-cyan/10 hover:text-brand-cyan hover:border-brand-cyan/30"
             >
-              <Mail className="w-3 h-3 opacity-50 group-hover:opacity-100" />
-              <span className="hidden sm:inline">CONTACT_OFFICE</span>
-              <span className="sm:hidden">MAIL</span>
+              <FileText className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+              <span className="hidden sm:inline">WHITE_PAPER</span>
+              <span className="sm:hidden">PDF</span>
             </a>
         </div>
       </div>

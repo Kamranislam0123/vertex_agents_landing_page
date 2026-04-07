@@ -17,6 +17,20 @@ const GithubIcon = (props: any) => (
   </svg>
 );
 
+// Custom SVG for Telegram
+const TelegramIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M21.6 2.9c-.3-.3-.8-.4-1.2-.3L2.6 8.1c-.6.2-.7.7-.3 1.1l3.3 3.2 1.9 6.1c.2.6.7.6 1 .4l2.7-2.1 4.5 3.1c.8.5 1.5.2 1.8-.8l2.2-11.2c.2-1-.2-1.6-.9-2zM10.4 14.6l-1.1-3.6 8.8-6.1-7.7 9.7z" />
+  </svg>
+);
+
+// Custom SVG for YouTube
+const YouTubeIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M23.5 6.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.6 2.4 12 2.4 12 2.4h-.1s-4.6 0-7.9.5c-.5.1-1.5.1-2.4 1C.9 4.6.7 6.2.7 6.2S.5 8 .5 9.8v1.3c0 1.8.2 3.6.2 3.6s.2 1.6.9 2.3c.9.9 2.1.9 2.6 1 1.9.2 8 .5 8 .5s4.6 0 7.9-.5c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.8.2-3.6V9.8c0-1.8-.2-3.6-.2-3.6zM9.8 15.5V6.9l6.4 4.3-6.4 4.3z" />
+  </svg>
+);
+
 export default function Footer() {
   return (
     <footer className="w-full relative overflow-hidden bg-brand-dark border-t border-white/5 mt-24">
@@ -81,7 +95,7 @@ export default function Footer() {
           <div className="flex flex-col items-start">
             <h3 className="text-white font-tech tracking-widest text-xs mb-6">CONNECT</h3>
             <div className="flex items-center gap-4">
-              <a href="https://twitter.com/_vertexagents" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-brand-cyan/50 hover:bg-brand-cyan/10 text-slate-400 hover:text-brand-cyan transition-all group relative">
+              <a href="https://x.com/TheVertexAgents" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-brand-cyan/50 hover:bg-brand-cyan/10 text-slate-400 hover:text-brand-cyan transition-all group relative" aria-label="X">
                 <XIcon className="w-4 h-4 group-hover:scale-110 transition-transform relative z-10" />
                 <div className="absolute inset-0 rounded-lg bg-brand-cyan/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
@@ -89,9 +103,17 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform relative z-10" />
                 <div className="absolute inset-0 rounded-lg bg-[#5865F2]/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
-              <a href="https://github.com/vertexagents" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-white/50 hover:bg-white/10 text-slate-400 hover:text-white transition-all group relative">
+              <a href="https://github.com/TheVertexAgents" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-white/50 hover:bg-white/10 text-slate-400 hover:text-white transition-all group relative" aria-label="GitHub">
                 <GithubIcon className="w-4 h-4 group-hover:scale-110 transition-transform relative z-10" />
                 <div className="absolute inset-0 rounded-lg bg-white/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              <a href="https://www.youtube.com/watch?v=1S2vvLAOiiw" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-[#FF0000]/50 hover:bg-[#FF0000]/10 text-slate-400 hover:text-[#FF0000] transition-all group relative" aria-label="YouTube">
+                <YouTubeIcon className="w-4 h-4 group-hover:scale-110 transition-transform relative z-10" />
+                <div className="absolute inset-0 rounded-lg bg-[#FF0000]/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              <a href="https://t.me/vertexagents" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-brand-cyan/50 hover:bg-brand-cyan/10 text-slate-400 hover:text-brand-cyan transition-all group relative" aria-label="Telegram">
+                <TelegramIcon className="w-4 h-4 group-hover:scale-110 transition-transform relative z-10" />
+                <div className="absolute inset-0 rounded-lg bg-brand-cyan/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>
           </div>
