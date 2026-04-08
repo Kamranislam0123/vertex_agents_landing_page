@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, ExternalLink, FileText } from "lucide-react";
+import { Shield, ExternalLink, FileText, BookOpen } from "lucide-react";
 
 export default function Header() {
   return (
@@ -33,6 +33,15 @@ export default function Header() {
              </div>
 
              <a
+              href="#blog"
+              className="group flex items-center gap-2 px-3 py-1 rounded-sm bg-brand-purple/5 border border-brand-purple/20 font-tech text-[9px] tracking-wider text-slate-300 transition-all hover:bg-brand-purple/10 hover:text-brand-purple hover:border-brand-purple/30"
+            >
+              <BookOpen className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+              <span className="hidden sm:inline">SENTINEL_BLOG</span>
+              <span className="sm:hidden">BLOG</span>
+            </a>
+
+            <a
               href="https://linktr.ee/vertexagents"
               target="_blank"
               rel="noopener noreferrer"

@@ -6,6 +6,7 @@ import HowItWorks from "./components/HowItWorks";
 import CodeShowcase from "./components/CodeShowcase";
 import ResourcesSection from "./components/ResourcesSection";
 import TechStack from "./components/TechStack";
+import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 
@@ -21,6 +22,7 @@ export default function Home() {
       <CodeShowcase />
       <ResourcesSection />
       <TechStack />
+      <BlogSection />
       <Footer />
     </main>
   );

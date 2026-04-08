@@ -59,40 +59,52 @@ export default function Footer() {
           </div>
 
           {/* Related Links */}
-          <div className="flex flex-col items-start">
-            <h3 className="text-white font-tech tracking-widest text-xs mb-6 flex items-center gap-2">
-              ECOSYSTEM
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#how-it-works" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
-                  <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
-                  HOW_IT_WORKS
-                </a>
-              </li>
-              <li>
-                <a href="#architecture" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
-                  <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
-                  ARCHITECTURE
-                </a>
-              </li>
-              <li>
-                <a href="/whitepaper" className="text-brand-cyan hover:text-white transition-colors font-tech text-xs flex items-center gap-2 group">
-                  <FileText className="w-3 h-3" />
-                  WHITE_PAPER
-                </a>
-              </li>
-              <li>
-                <a href="https://linktr.ee/vertexagents" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
-                  <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
-                  ALL_LINKS
-                </a>
-              </li>
-            </ul>
+          <div className="flex flex-col items-start gap-8">
+            <div>
+              <h3 className="text-white font-tech tracking-widest text-xs mb-6 flex items-center gap-2">
+                ECOSYSTEM
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <a href="#how-it-works" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
+                    <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
+                    HOW_IT_WORKS
+                  </a>
+                </li>
+                <li>
+                  <a href="#architecture" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
+                    <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
+                    ARCHITECTURE
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-start gap-8">
+            <div>
+              <h3 className="text-white font-tech tracking-widest text-xs mb-6 flex items-center gap-2">
+                LEGAL
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <a href="/privacy-policy" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
+                    <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
+                    PRIVACY_POLICY
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms-of-service" className="text-slate-400 hover:text-brand-cyan transition-colors font-tech text-xs flex items-center gap-2 group">
+                    <ArrowUpRight className="w-3 h-3 text-brand-cyan/50 group-hover:text-brand-cyan" />
+                    TERMS_OF_SERVICE
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Social Links */}
-          <div className="flex flex-col items-start">
+          {/* <div className="flex flex-col items-start">
             <h3 className="text-white font-tech tracking-widest text-xs mb-6">CONNECT</h3>
             <div className="flex items-center gap-4">
               <a href="https://x.com/TheVertexAgents" target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg bg-white/5 border border-white/5 hover:border-brand-cyan/50 hover:bg-brand-cyan/10 text-slate-400 hover:text-brand-cyan transition-all group relative" aria-label="X">
@@ -116,7 +128,7 @@ export default function Footer() {
                 <div className="absolute inset-0 rounded-lg bg-brand-cyan/10 blur-[10px] opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>
-          </div>
+          </div> */}
 
         </div>
 
