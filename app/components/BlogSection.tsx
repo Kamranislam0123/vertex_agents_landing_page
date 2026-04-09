@@ -2,36 +2,8 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, User, ChevronRight } from "lucide-react";
-
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "Rise of the Rogue Agent: Why AI Trading Needs Verifiable Guardrails",
-    excerpt: "Exploring critical security failure modes for autonomous trading agents: AI hallucinations, model compromise, and the advisory gap in crypto risk management.",
-    date: "April 9, 2026",
-    author: "Vertex Sentinel Team",
-    tags: ["AI Trading Security", "DeFi Safety"],
-    readTime: "5 min read"
-  },
-  {
-    id: 2,
-    title: "Deep Dive into ERC-8004: Standardizing Verifiable AI Intent on Ethereum",
-    excerpt: "How Vertex Sentinel leverages the ERC-8004 standard and EIP-712 typed signatures to verify agent identity and trade intent for institutional DeFi.",
-    date: "April 10, 2026",
-    author: "Vertex Engineering",
-    tags: ["ERC-8004", "Ethereum Protocol"],
-    readTime: "8 min read"
-  },
-  {
-    id: 3,
-    title: "AI Execution Security: Bridging LLMs to Kraken via MCP and Secure CLI",
-    excerpt: "Securing the interface between Large Language Models and live exchanges using the Model Context Protocol (MCP) and isolated key management systems.",
-    date: "April 11, 2026",
-    author: "Vertex Product",
-    tags: ["Kraken CLI", "MCP Security"],
-    readTime: "6 min read"
-  }
-];
+import Link from "next/link";
+import { BLOG_POSTS } from "../data/blog-posts";
 
 export default function BlogSection() {
   return (
@@ -90,57 +62,61 @@ export default function BlogSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {BLOG_POSTS.map((post, index) => (
-          <motion.div
+          <Link 
             key={post.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 hover:border-brand-purple/30 transition-all duration-300"
+            href={`/blog/${post.slug}`}
+            className="block h-full"
           >
-            {/* Card Content */}
-            <div className="p-8 flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-6 text-[10px] font-tech text-slate-500">
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  {post.date}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative flex flex-col h-full bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 hover:border-brand-purple/30 transition-all duration-300"
+            >
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex items-center gap-4 mb-6 text-[10px] font-tech text-slate-500">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    {post.date}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <User className="w-3 h-3" />
+                    {post.author}
+                  </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <User className="w-3 h-3" />
-                  {post.author}
+
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-purple transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+
+                <p className="text-slate-400 text-sm leading-relaxed mb-8 grow">
+                  {post.excerpt}
+                </p>
+
+                <div className="flex items-center justify-between mt-auto">
+                  <div className="flex gap-2">
+                    {post.tags.map(tag => (
+                      <span key={tag} className="px-2 py-0.5 rounded-sm bg-brand-purple/10 border border-brand-purple/20 text-brand-purple text-[9px] font-tech">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center gap-1 text-[10px] font-tech text-brand-purple group-hover:gap-2 transition-all">
+                    READ_MORE <ChevronRight className="w-3 h-3" />
+                  </div>
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-purple transition-colors line-clamp-2">
-                {post.title}
-              </h3>
-
-              <p className="text-slate-400 text-sm leading-relaxed mb-8 grow">
-                {post.excerpt}
-              </p>
-
-              <div className="flex items-center justify-between mt-auto">
-                <div className="flex gap-2">
-                  {post.tags.map(tag => (
-                    <span key={tag} className="px-2 py-0.5 rounded-sm bg-brand-purple/10 border border-brand-purple/20 text-brand-purple text-[9px] font-tech">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <button className="flex items-center gap-1 text-[10px] font-tech text-brand-purple group-hover:gap-2 transition-all">
-                  READ_MORE <ChevronRight className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-
-            {/* Accent Blur */}
-            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-purple/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-          </motion.div>
+              {/* Accent Blur */}
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-purple/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            </motion.div>
+          </Link>
         ))}
       </div>
       
-      {/* Decorative Grid Background for this section */}
+      {/* Decorative Grid Background */}
       <div className="absolute inset-0 z-[-1] opacity-20 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full" 
              style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(124, 58, 237, 0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
